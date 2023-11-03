@@ -16,13 +16,20 @@ def taskView(request,id):
     return render(request,'tasks/task.html',{'task':task})
 
 def tasksList(request):
-    tasks_list = Task.objects.all().order_by('created_at')
 
-    paginator = Paginator(tasks_list, 3)
+    search = request.GET.get('search')
 
-    page = request.GET.get('page')
+    if search:
+        tasks = Task.objects.filter(title__icontains=search)
+    else:
 
-    tasks = paginator.get_page(page)
+        tasks_list = Task.objects.all().order_by('created_at')
+
+        paginator = Paginator(tasks_list, 3)
+
+        page = request.GET.get('page')
+
+        tasks = paginator.get_page(page)
 
     return render(request,'tasks/list.html',{'tasks':tasks})
 
