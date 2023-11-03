@@ -122,4 +122,20 @@ ul.messages li {
     list-style: none;
 }
 
+/* Paginação*/
+
+.pagination {
+    margin-bottom:  20px;
+}
+
+.step-links {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.step-links .current{
+    margin-right: 5px;
+    margin-left: 5px;
+}
 
