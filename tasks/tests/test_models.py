@@ -25,6 +25,8 @@ class TaskTestCase(TestCase):
             user=self.user,
         )
 
-    def test_retorno_str(self):
-
+    def test_title_is_equal_str_return(self):
         self.assertEquals(self.object.__str__(), self.title)
+
+    def test_description_is_equal(self):
+        self.assertEquals(self.object.description, self.description)
