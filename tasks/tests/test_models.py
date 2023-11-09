@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
+from django.urls import reverse
 
 from faker import Faker
 
@@ -30,3 +31,11 @@ class TaskTestCase(TestCase):
 
     def test_description_is_equal(self):
         self.assertEquals(self.object.description, self.description)
+
+    def test_done_is_equal(self):
+        self.assertEquals(self.object.done, self.done)
+
+    def test_user_is_equal(self):
+        self.assertEquals(self.object.user, self.user)
+
+
